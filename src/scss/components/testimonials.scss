@@ -1,0 +1,217 @@
+// .wrapper {
+// 	min-height: 1500px;
+// 	background: url("../images/slice/1140-10.png") no-repeat center top;
+
+// 	@include xl {
+// 		background: url("../images/slice/768-10.png") no-repeat center top;
+// 	} // // .wrapper // 	@include xl
+
+// 	@include lg {
+// 		background: url("../images/slice/320-10.png") no-repeat center top;
+// 	} // // .wrapper // 	@include lg
+// } // // .wrapper
+
+.testimonials {
+	@include no-shift;
+
+	display: block;
+	text-align: center;
+
+	// NESTED
+	.pagination {
+		margin-top: 77px;
+	}
+
+	span.on-title {
+		@include margin-tl(115px, 6px);
+
+		display: block;
+		letter-spacing: 5.3px;
+	} // .testimonials span.on-title
+
+	h2.title {
+		margin-top: 22px;
+		line-height: 131%;
+		letter-spacing: -0.5px;
+	} // .testimonials h2.title
+
+	.testimonials-block {
+		@include no-shift;
+
+		display: grid;
+		grid-column-gap: 51px;
+		grid-template: auto / 42.7262% 1fr;
+		margin: 42px auto 0;
+		border-radius: var(--border-radius--1);
+		padding: 46px 48px 43px;
+		min-height: 459px;
+		max-width: 969px;
+		background: var(--testimonials-block--bg-color);
+
+		&::after {
+			@include shadow;
+		} // .testimonials .testimonials-block::after
+	} // .testimonials .testimonials-block
+
+	.square-img {
+		@include max-width(373px);
+
+		display: block;
+		border-radius: var(--border-radius--1);
+	} // .testimonials .square-img
+
+	.stars {
+		@include size(119px, 16.46px);
+
+		display: block;
+	} // .testimonials .stars
+
+	h2.segment-title {
+		@include add-font(24px, null, null, null, -0.1px);
+
+		margin-top: 22px;
+		text-align: left;
+	} // .testimonials h2.segment-title
+
+	p.segment-descr {
+		margin-top: 13px;
+		text-align: left;
+	} // .testimonials p.segment-descr
+
+	// XL
+	@include xl {
+		span.on-title {
+			@include margin-tl(38px, 2px);
+			@include add-font(12px, null, null, null, 1.7px);
+
+			display: block;
+		} // .testimonials @include xl span.on-title
+
+		h2.title {
+			@include add-font(23px, null, 131%, null, -0.2px);
+
+			margin-top: 13px;
+		} // .testimonials @include xl h2.title
+
+		.testimonials-block {
+			display: grid;
+			grid-column-gap: 30px;
+			grid-template: auto / 42.8% 1fr;
+			margin: 23px auto 0;
+			padding: 27px 28px 27px 27px;
+			min-height: 270px;
+			max-width: 568px;
+		} // .testimonials @include xl .testimonials-block
+
+		.stars {
+			@include size(72px, 12px);
+		} // .testimonials @include xl .stars
+
+		h2.segment-title {
+			@include margin-tl(13px, -2px);
+			@include add-font(17px, null, 153%, null, 0.45px);
+
+			text-align: left;
+		} // .testimonials @include xl h2.segment-title
+
+		p.segment-descr {
+			overflow: hidden;
+			margin-top: 3px;
+			padding-right: 7px;
+			height: 75px;
+			font-size: 16px;
+			text-align: left;
+		} // .testimonials @include xl p.segment-descr
+	} // .testimonials @include xl
+
+	// LG
+	@include lg {
+		span.on-title {
+			margin-top: 31px;
+		} // .testimonials @include lg span.on-title
+
+		h2.title {
+			margin: 14px auto 0;
+			max-width: 210px;
+			font-size: 23px;
+		} // .testimonials @include lg h2.title
+
+		.testimonials-block {
+			display: block;
+			padding: 27px 29px 27px 33px;
+			min-height: 564px;
+		} // .testimonials @include lg .testimonials-block
+
+		.stars {
+			@include size(78px, 11px);
+
+			margin-top: 25px;
+		} // .testimonials @include lg .stars
+	} // .testimonials @include lg
+} // .testimonials
+
+.testimonial-person {
+	// NESTED
+	display: grid;
+	align-content: flex-start;
+	justify-content: flex-start;
+	grid-template: auto / 24% 1fr;
+	padding-top: 83px;
+	background: url("../images/grey-dash.svg") repeat-x left 37px / 4px 1px;
+
+	.__img {
+		@include size(80px);
+
+		display: block;
+		border-radius: 50%;
+	} // .testimonial-person .__img
+
+	.__info {
+		display: block;
+		height: 83px;
+		text-align: left;
+	} // .testimonial-person .__info
+
+	.__name {
+		margin-top: 20px;
+		letter-spacing: 1px;
+	} // .testimonial-person .__name
+
+	.__position {
+		padding-top: 10px;
+		font-weight: 400;
+		font-size: 14px;
+	} // .testimonial-person .__position
+
+	// XL
+	@include xl {
+		padding-top: 42px;
+		background-position: left 16px;
+
+		.pagination {
+			margin-top: 30px;
+		}
+
+		.__img {
+			@include size(47px);
+		} // .testimonial-person @include xl .__img
+
+		.__name {
+			margin-top: 3px;
+			letter-spacing: 0;
+		} // .testimonial-person @include xl .__name
+
+		.__info {
+			height: 48px;
+		} // .testimonial-person @include xl .__info
+	} // .testimonial-person @include xl
+
+	// LG
+	@include lg {
+		padding-top: 69px;
+
+		.pagination {
+			margin-top: 17px;
+		}
+	} // .testimonial-person @include lg
+} // .testimonial-person

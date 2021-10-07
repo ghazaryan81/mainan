@@ -1,0 +1,27 @@
+extends pug/base
+include pug/mixins/svg
+prepend vars
+	//-
+append vars
+include pug/data.pug
+	//-
+block content
+	.wrapper
+		.crop-x
+			i.bc._1
+			i.bc._2
+			i.bc._3
+			i.bc._4
+			i.bc._5
+		//- include pug/components/header
+		//- include pug/components/main-section
+		//- include pug/components/profile
+		//- include pug/components/privilege
+		//- include pug/components/about
+		//- include pug/components/print
+		//- include pug/components/benefit
+		//- include pug/components/gallery
+		//- include pug/components/price
+		//- include pug/components/testimonials
+		//- include pug/components/faq
+		//- include pug/components/footer

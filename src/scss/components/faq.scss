@@ -1,0 +1,81 @@
+.faq {
+	@include no-shift;
+
+	padding-bottom: 85px;
+
+	// NESTED
+	.on-title {
+		display: block;
+		margin-top: 80px;
+		letter-spacing: 5px;
+		text-align: center;
+	} // .faq .on-title
+
+	h2.title {
+		margin-top: 35px;
+		letter-spacing: -0.3px;
+		text-align: center;
+	} // .faq h2.title
+
+	button.btn {
+		@include max-width(291px);
+		@include add-font(16px, 800, null, var(--font-family--nunito));
+
+		margin: 52px auto 0;
+	} // .faq button.btn
+
+	// XL
+	@include xl {
+		padding-bottom: 71px;
+
+		.on-title {
+			margin-top: 17px;
+			font-size: 12px;
+			letter-spacing: 1px;
+		} // .faq @include xl .on-title
+
+		h2.title {
+			margin-top: 19px;
+			font-size: 23px;
+			letter-spacing: -0.1px;
+		} // .faq @include xl h2.title
+
+		.accordion {
+			margin-top: 24px;
+			max-width: 672px;
+		} // .faq @include xl .accordion
+	} // .faq @include xl
+
+	// LG
+	@include lg {
+		padding-bottom: 25px;
+
+		.on-title {
+			margin-top: 14px;
+		} // .faq @include lg .on-title
+
+		h2.title {
+			margin: 14px auto 0;
+			max-width: 80%;
+			line-height: 132%;
+		} // .faq @include lg h2.title
+
+		button.btn {
+			max-width: 249px;
+		} // .faq @include lg button.btn
+
+		.accordion {
+			margin-top: 20px;
+			max-width: 280px;
+
+			.__item-header {
+				font-size: 14px;
+			} // .faq @include lg .accordion .__item-header
+
+			.__item-body {
+				padding: 0 0 60px 5px;
+				font-size: 12px;
+			} // .faq @include lg .accordion .__item-body
+		} // .faq @include lg .accordion
+	} // .faq @include lg
+} // .faq

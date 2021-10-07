@@ -1,0 +1,403 @@
+include mixins
+
+block vars
+	-
+		var baseDir = './'
+	-
+		// var title = typeof title !== 'undefined' ? title : null
+		var title = "Mainan"
+
+		// var description = typeof description !== 'undefined' ? description : null
+		var description = "Mainan"
+
+		// var image = typeof image !== 'undefined' ? image : null
+		var image = "./images/fav/section-about-img-2x.jpg"
+	-
+		var html = {
+			attrs: {
+				lang: 'en'
+			},
+			classList: []
+		}
+	-
+		var body = {
+			attrs: {},
+			classList: []
+		}
+	-
+		var meta = {
+			/*
+			IOS мобилные устройства позволяют сохранять сайт с иконкой на экране.
+			При нажатии на эту иконку сайт открывается в полноэкранном режиме, если указан "yes",
+			если не указан или указан "no", то при нажатии на иконку на экране открывается
+			в браузере сафари обычном способом
+			*/
+			appleMobileWebAppCapable: "yes",
+
+			// цвет статусбара black-translucent - черный в видимым текстом
+			appleMobileWebAppStatusBarStyle: "black-translucent",
+
+			// При добавлении сайта на домашний экран в iOS задает имя иконки.
+			appleMobileWebAppTitle: "Mainan",
+
+			// ?
+			appleTouchFullscreen: null,
+
+			/*
+			Название приложения для разных языков, пример
+			<meta name="application-name" lang="ru" content="Моё приложение">
+			<meta name="application-name" lang="en" content="My application">
+			<meta name="application-name" lang="fr" content="Mon application">
+			Но здесь прописывается только для одного
+			*/
+			applicationName: "Mainan",
+
+			// отображение символов в указанной кодировке
+			charset: 'utf-8',
+
+			// описание страницы
+			description: description,
+
+			// определяет, будут ли телефонные номера, электронные адреса,
+			// адреса локаций, даты отображаться в HTML-содержимом в виде гипертекстовых ссылок
+			formatDetection: {
+				address: "address=no",
+				date: "date=no",
+				email: "email=no",
+				telephone: "telephone=no"
+			},
+
+			// Ключевые слова характеризующие веб страницу для seo оптимизации
+			keywords: ["teach","children", "learn", "playing"],
+
+			// Задает цвет плитки в Windows 10
+			msapplicationTileColor: "#ff7d56",
+
+			msapplicationTileImage: "./images/fav/ms-icon-310x310.png",
+
+			/*
+			Позволяет определить до пяти XML-файлов, которые будут опрашиваться
+			с определенным интервалом. Эти файлы могут содержать уведомления,
+			отображаемые на плитке.
+			Пример:
+			append vars
+				- meta.msapplicationNotification = 'frequency=30; polling-uri=notifications/feed-1.xml; polling-uri2=notifications/feed-2.xml'
+			*/
+			msapplicationNotification: null,
+
+		// Задает иконку малой плитки в Windows 10.
+			msapplicationSquare70x70logo: "./images/fav/mstile-70x70.png",
+
+			// Задает иконку широкой плитки в Windows 10.
+			msapplicationSquare150x150logo: "./images/fav/mstile-150x150.png",
+
+			// Задает иконку большой плитки в Windows 10.
+			msapplicationSquare310x310logo: "./images/fav/ms-icon-310x310.png",
+
+			// Задает иконку прямоугольной плитки в Windows 10.
+			msapplicationWide310x150logo: "./images/fav/msapplicationWide310x150logo.png",
+
+			/*
+				Мета-теги msapplication и другие параметры можно вынести из HTML
+				разметки в отдельный xml файл и указать ссылку на него. Подробнее о формате файла на
+			*/
+			msapplicationConfig: "none",
+
+			/*
+			Метатеги Open Graph задают дополнительную информацию, используемую социальными
+			сетями (VK, Twitter, Google Plus, Одноклассники и так далее) для оформления публикаций.
+			*/
+			ogDescription: description,
+
+			// Задает изображение страницы в Open Graph.
+			// при расщаривании данной страницы в соц сетях будет показывать в превью данная фотография
+			ogImage: image,
+
+			// Задает MIME-тип изображения в Open Graph.
+			ogImageType: 'image/jpeg',
+
+			// Задает ширину изображения в Open Graph.
+			ogImageWidth: "868",
+			// Задает ширину изображения в Open Graph.
+			ogImageHeight: "816",
+
+			// Задает описание изображения в Open Graph.
+			ogImageAlt: "Teach children to learn while playing",
+
+			// Задает локаль страницы в Open Graph.
+			ogLocale: 'ru_RU',
+
+			// Задает заголовок страницы в Open Graph.
+			ogTitle: title,
+			// Задает тип страницы в Open Graph.
+			ogType: 'website',
+
+			// Задает адрес страницы в Open Graph.
+			ogUrl: "http://localhost:3000/",
+
+			// Задает цвет вкладки мобильного браузера.
+			themeColor: "#ff7d56",
+
+			// Задает тип карточки Twitter.
+			// summary_large_image — предспросмотр страницы с большим изображением,
+			twitterCard: 'summary_large_image',
+
+			twitterSite: "@Mainan",
+			twitterCreator: "@Mainan",
+			twitterTitle: title,
+			twitterDescription: description,
+			twitterImage: image,
+			viewport: 'width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0,shrink-to-fit=no',
+			// viewport: 'width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1',
+			XUACompatible: 'IE=edge'
+		}
+	-
+		var link = {
+			// Задает иконку сайта в iOS
+			// Также можно задать иконки разных размеров:
+
+			appleTouchIcon: "./images/fav/apple-icon.png",
+			appleTouchIcon40x40: "./images/fav/apple-touch-icon-40x40.png",
+			appleTouchIcon57x57: "./images/fav/apple-touch-icon-57x57.png",
+			appleTouchIcon58x58: "./images/fav/apple-touch-icon-58x58.png",
+			appleTouchIcon60x60: "./images/fav/apple-touch-icon-60x60.png",
+			appleTouchIcon72x72: "./images/fav/apple-touch-icon-72x72.png",
+			appleTouchIcon76x76: "./images/fav/apple-touch-icon-76x76.png",
+			appleTouchIcon80x80: "./images/fav/apple-touch-icon-80x80.png",
+			appleTouchIcon87x87: "./images/fav/apple-touch-icon-87x87.png",
+			appleTouchIcon114x114: "./images/fav/apple-touch-icon-114x114.png",
+			appleTouchIcon120x120: "./images/fav/apple-icon-120x120.png",
+			appleTouchIcon144x144: "./images/fav/apple-touch-icon-114x114.png",
+			appleTouchIcon152x152: "./images/fav/apple-touch-icon-152x152.png",
+			appleTouchIcon167x167: "./images/fav/apple-touch-icon-167x167.png",
+			appleTouchIcon180x180: "./images/fav/apple-touch-icon-180x180.png",
+			appleTouchIcon1024x1024: "./images/fav/apple-touch-icon-1024x1024.png",
+
+			// Задает precomposed-иконку в iOS. Используется в
+			// том случае, если к иконке не нужно применять системные стили.
+			appleTouchIconPrecomposed: "./images/fav/apple-touch-icon.png",
+			appleTouchIconPrecomposed40x40: "./images/fav/apple-touch-icon-40x40.png",
+			appleTouchIconPrecomposed57x57: "./images/fav/apple-touch-icon-57x57.png",
+			appleTouchIconPrecomposed58x58: "./images/fav/apple-touch-icon-58x58.png",
+			appleTouchIconPrecomposed60x60: "./images/fav/apple-touch-icon-60x60.png",
+			appleTouchIconPrecomposed72x72: "./images/fav/apple-touch-icon-72x72.png",
+			appleTouchIconPrecomposed76x76: "./images/fav/apple-touch-icon-76x76.png",
+			appleTouchIconPrecomposed80x80: "./images/fav/apple-touch-icon-80x80.png",
+			appleTouchIconPrecomposed87x87: "./images/fav/apple-touch-icon-87x87.png",
+			appleTouchIconPrecomposed114x114: "./images/fav/apple-touch-icon-114x114.png",
+			appleTouchIconPrecomposed120x120: "./images/fav/apple-touch-icon-120x120.png",
+			appleTouchIconPrecomposed144x144: "./images/fav/apple-touch-icon-144x144.png",
+			appleTouchIconPrecomposed152x152: "./images/fav/apple-touch-icon-152x152.png",
+			appleTouchIconPrecomposed167x167: "./images/fav/apple-touch-icon-167x167.png",
+			appleTouchIconPrecomposed180x180: "./images/fav/apple-touch-icon-180x180.png",
+			appleTouchIconPrecomposed1024x1024: "./images/fav/apple-touch-icon-1024x1024.png",
+
+			// Задает favicon сайта.
+			icon: "./images/fav/favicon-without-bg.png",
+			// Также можно задать иконки разных размеров:
+			icon16x16: "./images/fav/favicon-16x16.png",
+			icon32x32: "./images/fav/favicon-32x32.png",
+			icon96x96: "./images/fav/favicon-96x96.png",
+			icon128x128: "./images/fav/favicon-128x128.png",
+			icon192x192: "./images/fav/favicon-192x192.png",
+			icon194x194: "./images/fav/favicon-194x194.png",
+			icon196x196: "./images/fav/favicon-196x196.png",
+			imageSrc: image,
+			manifest: './images/manifest.json',
+			maskIcon: {
+				href: "./images/fav/favicon-without-bg.svg",
+				color: "#ff7d56"
+			},
+			faviconIco: "./images/fav/favicon.ico",
+			faviconSvgXml: "./images/fav/favicon-with-bg.svg"
+		}
+doctype html
+html(class=html.classList)&attributes(html.attrs)
+	head
+		block head-start
+		block meta
+			if meta.charset !== null
+				meta(charset!=meta.charset)
+			if meta.XUACompatible !== null
+				meta(http-equiv="X-UA-Compatible" content!=meta.XUACompatible)
+			if meta.viewport !== null
+				meta(name="viewport" content!=meta.viewport)
+			if meta.description !== null
+				meta(name="description" content!=meta.description)
+			if meta.keywords !== null && !(Array.isArray(meta.keywords) && !meta.keywords.length)
+				meta(name="keywords" content!=(Array.isArray(meta.keywords) ? meta.keywords.join(', ') : meta.keywords))
+			if meta.ogType !== null && (meta.ogUrl || meta.ogTitle || meta.ogDescription || meta.ogImage)
+				meta(property="og:type" content!=meta.ogType)
+			if meta.ogUrl !== null
+				meta(property="og:url" content!=meta.ogUrl)
+			if meta.ogLocale !== null && (meta.ogUrl || meta.ogTitle || meta.ogDescription || meta.ogImage)
+				meta(property="og:locale" content!=meta.ogLocale)
+			if meta.ogTitle !== null
+				meta(property="og:title" content!=meta.ogTitle)
+			if meta.ogDescription !== null
+				meta(property="og:description" content!=meta.ogDescription)
+			if meta.ogImage !== null
+				meta(property="og:image" content!=meta.ogImage)
+			if meta.ogImageType !== null
+				meta(property="og:image:type" content!=meta.ogImageType)
+			if meta.ogImageWidth !== null
+				meta(property="og:image:width" content!=meta.ogImageWidth)
+			if meta.ogImageHeight !== null
+				meta(property="og:image:height" content!=meta.ogImageHeight)
+			if meta.ogImageAlt !== null
+				meta(property="og:image:alt" content!=meta.ogImageAlt)
+			if meta.twitterCard !== null && (meta.twitterSite || meta.twitterCreator || meta.twitterTitle || meta.twitterDescription || meta.twitterImage)
+				meta(name="twitter:card" content!=meta.twitterCard)
+			if meta.twitterSite !== null
+				meta(name="twitter:site" content!=meta.twitterSite)
+			if meta.twitterCreator !== null
+				meta(name="twitter:creator" content!=meta.twitterCreator)
+			if meta.twitterTitle !== null
+				meta(name="twitter:title" content!=meta.twitterTitle)
+			if meta.twitterDescription !== null
+				meta(name="twitter:description" content!=meta.twitterDescription)
+			if meta.twitterImage !== null
+				meta(name="twitter:image" content!=meta.twitterImage)
+			if meta.appleMobileWebAppCapable !== null
+				meta(name="apple-mobile-web-app-capable" content!=meta.appleMobileWebAppCapable)
+			if meta.appleMobileWebAppStatusBarStyle !== null
+				meta(name="apple-mobile-web-app-status-bar-style" content!=meta.appleMobileWebAppStatusBarStyle)
+			if meta.appleMobileWebAppTitle !== null
+				meta(name="apple-mobile-web-app-title" content!=meta.appleMobileWebAppTitle)
+			if meta.applicationName !== null
+				meta(name="application-name" content!=meta.applicationName)
+			if meta.msapplicationTileColor !== null
+				meta(name="msapplication-TileColor" content!=meta.msapplicationTileColor)
+			if meta.msapplicationTileImage !== null
+				meta(name="msapplication-TileImage" content!=meta.msapplicationTileImage)
+			if meta.msapplicationSquare70x70logo !== null
+				meta(name="msapplication-square70x70logo" content!=meta.msapplicationSquare70x70logo)
+			if meta.msapplicationSquare150x150logo !== null
+				meta(name="msapplication-square150x150logo" content!=meta.msapplicationSquare150x150logo)
+			if meta.msapplicationWide310x150logo !== null
+				meta(name="msapplication-wide310x150logo" content!=meta.msapplicationWide310x150logo)
+			if meta.msapplicationSquare310x310logo !== null
+				meta(name="msapplication-square310x310logo" content!=meta.msapplicationSquare310x310logo)
+			if meta.msapplicationNotification !== null
+				meta(name="msapplication-notification" content!=meta.msapplicationNotification)
+			if meta.msapplicationConfig !== null
+				meta(name="msapplication-config" content!=meta.msapplicationConfig)
+			if meta.themeColor !== null
+				meta(name="theme-color" content!=meta.themeColor)
+			if meta.formatDetection !== null && (typeof meta.formatDetection === 'string' || Object.values(meta.formatDetection).some(function (value) { return !value }))
+				meta(name="format-detection" content!=(typeof meta.formatDetection === 'string' ? meta.formatDetection : Object.entries(meta.formatDetection).filter(function (entry) { return !entry[1] || entry[1] === 'no' }).map(function (entry) { return `${entry[0]}=no` }).join(',')))
+		if title !== null
+			title!= title
+		block links
+			if link.appleTouchIconPrecomposed !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed)
+			if link.appleTouchIconPrecomposed40x40 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed40x40 sizes="40x40")
+			if link.appleTouchIconPrecomposed57x57 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed57x57 sizes="57x57")
+			if link.appleTouchIconPrecomposed58x58 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed58x58 sizes="58x58")
+			if link.appleTouchIconPrecomposed60x60 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed60x60 sizes="60x60")
+			if link.appleTouchIconPrecomposed72x72 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed72x72 sizes="72x72")
+			if link.appleTouchIconPrecomposed76x76 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed76x76 sizes="76x76")
+			if link.appleTouchIconPrecomposed80x80 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed80x80 sizes="80x80")
+			if link.appleTouchIconPrecomposed87x87 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed87x87 sizes="87x87")
+			if link.appleTouchIconPrecomposed114x114 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed114x114 sizes="114x114")
+			if link.appleTouchIconPrecomposed120x120 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed120x120 sizes="120x120")
+			if link.appleTouchIconPrecomposed144x144 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed144x144 sizes="144x144")
+			if link.appleTouchIconPrecomposed152x152 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed152x152 sizes="152x152")
+			if link.appleTouchIconPrecomposed167x167 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed167x167 sizes="167x167")
+			if link.appleTouchIconPrecomposed180x180 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed180x180 sizes="180x180")
+			if link.appleTouchIconPrecomposed1024x1024 !== null
+				link(rel="apple-touch-icon-precomposed" href!=link.appleTouchIconPrecomposed1024x1024 sizes="1024x1024")
+			if link.appleTouchIcon !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon)
+			if link.appleTouchIcon40x40 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon40x40 sizes="40x40")
+			if link.appleTouchIcon57x57 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon57x57 sizes="57x57")
+			if link.appleTouchIcon58x58 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon58x58 sizes="58x58")
+			if link.appleTouchIcon60x60 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon60x60 sizes="60x60")
+			if link.appleTouchIcon72x72 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon72x72 sizes="72x72")
+			if link.appleTouchIcon76x76 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon76x76 sizes="76x76")
+			if link.appleTouchIcon80x80 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon80x80 sizes="80x80")
+			if link.appleTouchIcon87x87 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon87x87 sizes="87x87")
+			if link.appleTouchIcon114x114 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon114x114 sizes="114x114")
+			if link.appleTouchIcon120x120 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon120x120 sizes="120x120")
+			if link.appleTouchIcon144x144 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon144x144 sizes="144x144")
+			if link.appleTouchIcon152x152 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon152x152 sizes="152x152")
+			if link.appleTouchIcon167x167 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon167x167 sizes="167x167")
+			if link.appleTouchIcon180x180 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon180x180 sizes="180x180")
+			if link.appleTouchIcon1024x1024 !== null
+				link(rel="apple-touch-icon" href!=link.appleTouchIcon1024x1024 sizes="1024x1024")
+			if link.icon !== null
+				link(rel="icon" href!=link.icon)
+			if link.icon16x16 !== null
+				link(rel="icon" href!=link.icon16x16 sizes="16x16")
+			if link.icon32x32 !== null
+				link(rel="icon" href!=link.icon32x32 sizes="32x32")
+			if link.icon96x96 !== null
+				link(rel="icon" href!=link.icon96x96 sizes="96x96")
+			if link.icon128x128 !== null
+				link(rel="icon" href!=link.icon128x128 sizes="128x128")
+			if link.icon192x192 !== null
+				link(rel="icon" href!=link.icon192x192 sizes="192x192")
+			if link.icon194x194 !== null
+				link(rel="icon" href!=link.icon194x194 sizes="194x194")
+			if link.icon196x196 !== null
+				link(rel="icon" href!=link.icon196x196 sizes="196x196")
+			if link.manifest !== null
+				link(rel="manifest" href!=link.manifest)
+			if link.maskIcon.href !== null
+				link(rel="mask-icon" href!=link.maskIcon.href color=link.maskIcon.color)
+			if link.faviconIco !== null
+				link(href!=link.faviconIco rel='shortcut icon' type='image/x-icon')
+			if link.faviconSvgXml !== null
+				link(href!=link.faviconSvgXml rel="icon" type="image/svg+xml")
+		block styles
+			link(rel="stylesheet" href!=`${baseDir}css/main.css?v=${Date.now()}`)
+			//- link(rel='preconnect' href='https://fonts.googleapis.com')
+			//- link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+			//- link(href='https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=block&text=%C2%AB%C2%BB%2C%D5%9D%E2%80%A4%D6%89-%D6%8A%D5%9F%D5%9A%D5%9C%D5%9B%D5%9E%D5%99%D5%9A1234567890%7B%7D%5B%5D~!%40%23%24%25%5E%26_-%3D%2B%2F*-AFabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%2C%3B%3A%25' rel='stylesheet')
+
+			//- link(rel='preconnect' href='https://fonts.googleapis.com')
+			//- link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+			//- link(href='https://fonts.googleapis.com/css2?family=Baloo+2&family=Baloo+Chettan+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=block&text=%C2%AB%C2%BB%2C%D5%9D%E2%80%A4%D6%89-%D6%8A%D5%9F%D5%9A%D5%9C%D5%9B%D5%9E%D5%99%D5%9A1234567890%7B%7D%5B%5D~!%40%23%24%25%5E%26_-%3D%2B%2F*-AFabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%2C%3B%3A%25' rel='stylesheet')
+		block head-end
+	body(class=body.classList)&attributes(body.attrs)
+		block body-start
+		block content
+		block scripts
+			//- script.
+			//- 	if (!('IntersectionObserver' in window)) {
+			//- 		var script = document.createElement("script");
+			//- 		script.src = "https://raw.githubusercontent.com/w3c/IntersectionObserver/master/polyfill/intersection-observer.js";
+			//- 		document.getElementsByTagName('head')[0].appendChild(script);
+			//- 	}
+			script(src="https://unpkg.com/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js")
+			script(src!=`${baseDir}js/vendor.js?v=${Date.now()}`)
+			script(src!=`${baseDir}js/main.js?v=${Date.now()}`)
+		block body-end

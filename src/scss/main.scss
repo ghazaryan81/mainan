@@ -1,0 +1,104 @@
+// stylelint-disable at-rule-empty-line-before
+@import "functions";
+@import "variables";
+@import "../../node_modules/reset-css/sass/reset";
+
+// @import "../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../node_modules/sass-rem/rem";
+@import "mixins";
+@import "sprites";
+@import "fonts";
+@import "vendor";
+@import "base";
+
+// @import "helpers";
+// @import "components/header";
+// @import "components/footer";
+
+@import "common";
+@import "pages/home";
+
+::selection {
+	color: var(--global--select-text-color);
+	background: var(--global--select-text-bg-color);
+} // ::selection
+
+body {
+	@include gradient-1;
+	@include scroll(7px, var(--body--scroll-thumb-background-color));
+	@include add-font(16px, 700, null, var(--font-family--nunito));
+
+	width: clamp(var(--global--min-w), 100%, var(--global--max-w));
+	word-break: break-word;
+	hyphens: auto;
+	color: var(--body--text-color);
+	background-repeat: no-repeat;
+	cursor: default;
+} // body
+
+html,
+body {
+	@include size(100%);
+
+	margin: 0 auto;
+} // body
+
+.wrapper {
+	@include no-shift;
+
+	margin: 0 auto;
+	width: 100%;
+} // .wrapper
+
+.fix-container {
+	@include no-shift;
+	@include p;
+	@include push--auto;
+
+	z-index: 2;
+	max-width: var(--xl--cw);
+
+	@include xl {
+		@include padding-x(48px);
+
+		max-width: var(--lg--cw);
+	} // .fix-container @include xl
+
+	@include lg {
+		@include padding-x(20px);
+
+		max-width: var(--md--cw);
+	} // .fix-container @include lg
+} // .fix-container
+
+@mixin shadow() {
+	@include pbl(0, 50%);
+	@include size(88.34%, 78%);
+
+	content: "";
+	z-index: -1;
+	display: block;
+	border-radius: var(--border-radius--1);
+	background: var(--shadow--bg-color);
+	opacity: 0.21;
+	filter: blur(78px);
+	transform: translateX(-50%);
+}
+
+@import "components/single";
+
+/* @import "components/header";
+@import "components/main-section";
+@import "components/profile";
+@import "components/privilege";
+
+@import "components/about";
+@import "components/print";
+@import "components/benefit";
+
+@import "components/gallery";
+@import "components/pagination";
+@import "components/faq";
+@import "components/testimonials";
+@import "components/price";
+@import "components/footer"; */

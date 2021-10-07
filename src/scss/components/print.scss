@@ -1,0 +1,108 @@
+// .wrapper {
+// 	// min-height: 1500px;
+
+// 	// background: url("../images/slice/1140-6.png") no-repeat center top;
+
+// 	@include xl {
+// 		// background: url("../images/slice/768-6.png") no-repeat center top;
+// 	} // // .wrapper // 	@include xl
+
+// 	@include lg {
+// 		// background: url("../images/slice/320-6.png") no-repeat center top;
+// 	} // // .wrapper // 	@include lg
+// } // // .wrapper
+
+.print {
+	@include no-shift;
+
+	text-align: center;
+
+	// NESTED
+	span.on-title {
+		@include margin-tl(62px, 6px);
+
+		display: block;
+		letter-spacing: 5.5px;
+	} // .print span.on-title
+
+	h2.title {
+		margin-top: 16px;
+		line-height: 131%;
+		letter-spacing: -0.2px;
+	} // .print h2.title
+
+	// XL
+	@include xl {
+		span.on-title {
+			@include margin-tl(0, 20px);
+
+			font-size: 13px;
+			letter-spacing: 1px;
+		} // .print @include xl span.on-title
+
+		h2.title {
+			margin-top: 12px;
+			font-size: 23px;
+		} // .print @include xl h2.title
+	} // .print @include xl
+} // .print
+
+// SINGLE
+.print-row {
+	display: grid;
+	justify-content: flex-start;
+	grid-template: auto / repeat(4, 1fr);
+	margin-top: 65px;
+
+	// NESTED
+	.__col {
+		@include no-shift;
+
+		min-height: 100px;
+		text-align: center;
+	} // .print-row .__col
+
+	.print-img {
+		mask: url("../images/shapes/print-img-shape.svg") no-repeat 0 0 / cover;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 184.1px;
+	} // .print-row .print-img
+
+	h2.segment-title {
+		margin-top: 31px;
+		font-size: 18px;
+	} // .print-row h2.segment-title
+
+	p.segment-descr {
+		@include add-font(16px, 400, 170%, null);
+
+		overflow: hidden;
+		padding: 9px 29px;
+		height: 86px;
+	} // .print-row p.segment-descr
+
+	// XL
+	@include xl {
+		grid-template: auto / repeat(2, 1fr);
+		margin-top: 22px;
+
+		.__col {
+			margin-bottom: 45px;
+		} // .print-row @include xl .__col
+	} // .print-row @include xl
+
+	// LG
+	@include lg {
+		grid-template: auto / 1fr;
+		margin-top: 22px;
+
+		.__col {
+			margin-bottom: 46px;
+
+			&:last-child {
+				margin-bottom: 14px;
+			} // .print-row @include lg .__col:last-child
+		} // .print-row @include lg .__col
+	} // .print-row @include lg
+} // .print-row

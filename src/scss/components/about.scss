@@ -1,0 +1,156 @@
+.wrapper {
+	// min-height: 100vh;
+	// background: url("../images/slice/1140-5.png") no-repeat center top;
+
+	@include xl {
+		// background: url("../images/slice/768-5.png") no-repeat center top;
+	} // .wrapper @include xl
+
+	@include lg {
+		// background: url("../images/slice/320-5.png") no-repeat center top;
+	} // .wrapper @include lg
+} // .wrapper
+
+.about {
+	display: grid;
+	grid-template: auto / 51% 1fr;
+	padding-bottom: 92px;
+
+	// NESTED
+	.__col {
+		@include no-shift;
+	} // .about .__col
+
+	span.on-title {
+		display: block;
+		margin-top: 82px;
+		letter-spacing: 5.5px;
+	} // .about span.on-title
+
+	h2.title {
+		margin-top: 16px;
+		padding-right: 120px;
+		line-height: 131%;
+		letter-spacing: -0.2px;
+	} // .about h2.title
+
+	p.descr {
+		margin-top: 20px;
+		padding-right: 80px;
+		line-height: 175%;
+		letter-spacing: -0.05px;
+	} // .about p.descr
+
+	.img-row {
+		@include p("abs", 69px, -101.2%);
+
+		margin-top: -1px;
+		padding-top: 1px;
+		width: 100%;
+		font-size: 0;
+	} // .about .img-row
+
+	.img-cell {
+		@include p("abs");
+
+		padding-top: 1px;
+		font-size: 0;
+	} // .about .img-cell
+
+	.section-img {
+		@include max-width(434px);
+
+		mask: url("../images/shapes/section-about-img-shape.svg") no-repeat 0 0 / cover;
+	} // .about .section-img
+
+	// XL
+	@include xl {
+		grid-template: auto / 50.5% 1fr;
+		padding-bottom: 53px;
+		text-decoration: none;
+
+		span.on-title {
+			display: block;
+			margin-top: 18px;
+			font-size: 14px;
+			letter-spacing: 0.4px;
+		} // .about @include xl span.on-title
+
+		h2.title {
+			@include add-font(23px, null, 131%, null, -0.2px);
+
+			margin-top: 11px;
+			padding-right: 80px;
+		} // .about @include xl h2.title
+
+		p.descr {
+			@include add-font(15px, null, 173%, null, -0.05px);
+
+			margin-top: 15px;
+			padding-right: 30px;
+		} // .about @include xl p.descr
+
+		.section-img {
+			@include margin-tl(-48px, -1px);
+
+			width: 100%;
+			max-width: 309px;
+		} // .about @include xl .section-img
+	} // .about @include xl
+
+	// LG
+	@include lg {
+		grid-template: auto / auto;
+		padding-bottom: 13px;
+
+		.__col {
+			display: flex;
+			flex-wrap: wrap;
+		} // .about @include lg .__col
+
+		span.on-title {
+			display: block;
+			order: 1;
+			width: 100%;
+			text-align: center;
+		} // .about @include lg span.on-title
+
+		h2.title {
+			order: 2;
+			padding: 0 14px;
+			text-align: center;
+		} // .about @include lg h2.title
+
+		p.descr {
+			order: 3;
+			padding-right: 0;
+			text-align: center;
+		} // .about @include lg p.descr
+
+		.img-row {
+			@include p;
+
+			display: block;
+			order: 4;
+			margin-top: 16px;
+			padding-top: 0;
+			width: 100%;
+			font-size: 0;
+		} // .about @include lg .img-row
+
+		.img-cell {
+			@include p;
+
+			padding-top: 0;
+			font-size: 0;
+		} // .about @include lg .img-cell
+
+		.section-img {
+			@include margin-tl(0, 0);
+
+			width: 100%;
+		} // .about @include lg .section-img
+	} // .about @include lg
+} // .about
+
+// SINGLE

@@ -1,0 +1,169 @@
+// .wrapper {
+// 	min-height: 1500px;
+// 	background: url("../images/slice/1140-8.png") no-repeat center top;
+
+// 	@include xl {
+// 		background: url("../images/slice/768-8.png") no-repeat center top;
+// 	} // // .wrapper // 	@include xl
+
+// 	@include lg {
+// 		background: url("../images/slice/320-8.png") no-repeat center top;
+// 	} // // .wrapper // 	@include lg
+// } // // .wrapper
+
+.gallery {
+	@include no-shift;
+
+	display: block;
+	padding-bottom: 60px;
+	text-align: center;
+
+	// NESTED
+	span.on-title {
+		@include margin-tl(82px, 7px);
+
+		display: block;
+		letter-spacing: 5.5px;
+	} // .gallery span.on-title
+
+	h2.title {
+		margin-top: 16px;
+		line-height: 131%;
+		letter-spacing: -0.4px;
+	} // .gallery h2.title
+
+	p.descr {
+		display: block;
+		overflow: hidden;
+		margin: 20px auto 0;
+		height: 54px;
+		max-width: 67%;
+		letter-spacing: 0;
+	} // .gallery p.descr
+
+	.pagination {
+		margin-top: 53px;
+	}
+
+	// XL
+	@include xl {
+		padding-bottom: 19px;
+
+		.pagination {
+			margin-top: 30px;
+		}
+
+		span.on-title {
+			@include margin-tl(20px, -1px);
+
+			font-size: 13px;
+			letter-spacing: 1px;
+		} // .gallery @include xl span.on-title
+
+		h2.title {
+			margin-top: 12px;
+			font-size: 23px;
+		} // .gallery @include xl h2.title
+
+		p.descr {
+			margin: 0 auto;
+			margin-top: 12px;
+			max-width: 83%;
+			font-size: 16px;
+			letter-spacing: 0;
+		} // .gallery @include xl p.descr
+	} // .gallery @include xl
+
+	// LG
+	@include lg {
+		.pagination {
+			margin-top: 10px;
+		}
+	} // .gallery @include lg
+} // .gallery
+
+.gallery-item {
+	display: grid;
+	justify-content: flex-start;
+	grid-gap: 24px 25px;
+	grid-template: 186px 242px / repeat(3, 1fr);
+	margin-top: 50px;
+
+	.__cell,
+	.gallery-img {
+		overflow: hidden;
+		border-radius: 24px;
+	} // .gallery-item .gallery-img
+
+	.gallery-img {
+		object-fit: cover;
+		transform-origin: 50% 50%;
+		transition: transform 0.5s linear;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	} // .gallery-item .gallery-img
+
+	.__cell {
+		display: block;
+		width: 100%;
+
+		&._1 {
+			grid-row-start: 1;
+			grid-row-end: 3;
+		} // .gallery-item .__cell._1
+
+		&._2 {
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: 1;
+			grid-row-end: 2;
+		} // .gallery-item .__cell._1
+
+		&._3 {
+			grid-column-start: 3;
+			grid-column-end: 4;
+			grid-row-start: 1;
+			grid-row-end: 3;
+		} // .gallery-item .__cell._3
+
+		&._4 {
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+	} // .gallery-item .__cell
+
+	// XL
+	@include xl {
+		grid-gap: 15px 12px;
+		grid-template: 110px 144px / repeat(3, 1fr);
+		margin-top: 24px;
+	} // .gallery-item @include xl
+
+	// LG
+	@include lg {
+		display: block;
+		grid-gap: 0;
+		grid-template: auto / auto;
+		margin-top: 75px;
+
+		.__cell {
+			&._2,
+			&._3,
+			&._4 {
+				display: none;
+			} // .gallery-item @include lg .__cell._4
+		} // .gallery-item @include lg .__cell
+	} // .gallery-item @include lg
+} // .gallery-item
+
+.gallery-bock {
+	margin: 0 auto;
+
+	@include lg {
+		max-width: 79%;
+	} // .gallery-bock @include lg
+} // .gallery-bock

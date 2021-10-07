@@ -1,0 +1,20 @@
+section.fix-container._main-section
+	- var section = data.mainSection;
+	- var img = data.mainSection.img;
+	span.on-title
+		i.__line
+		| #{section.onTitle}
+	h1.title
+		| #{section.title}
+	p.descr
+		| #{section.descr}
+	button.btn._fill
+		| #{section.btnLabel}
+	.img-row
+		.img-cell
+			img.section-img(
+				src=img.src
+				alt=img.alt
+				title=img.title
+			)
+

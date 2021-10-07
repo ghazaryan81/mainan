@@ -1,0 +1,26 @@
+section.fix-container
+	- var section = data.testimonials;
+	.testimonials
+		span.on-title
+			| #{section.onTitle}
+		h2.title
+			| #{section.title}
+		each it, index in section.list
+			.testimonials-block
+				.__cell._1
+					img.square-img(src=it.img.src alt=it.img.alt title=it.img.title)
+				.__cell._2
+					.stars
+					h2.segment-title
+						| #{it.segmentTitle}
+					p.segment-descr
+						| #{it.segmentDescr}
+					.testimonial-person
+						img.__img(src=it.person.img.src alt=it.person.img.alt title=it.person.img.title)
+						.__info
+							.__name
+								| #{it.person.name}
+							.__position
+								| #{it.person.position}
+
+		include pagination

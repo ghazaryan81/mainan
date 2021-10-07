@@ -1,0 +1,18 @@
+section.fix-container
+	.privilege-header
+		- var section = data.privilege;
+		h2.__col._1.title
+			| #{section.title}
+		p.__col._2.descr
+			| #{section.descr}
+	.privilege-list
+		each it, index in section.blocks
+			.__col(class=`_${index + 1}`)
+				.p-left
+					.ic(class=`_${index + 1}`)
+						+svg(it.svg.anchor)(viewBox=it.svg.viewBox width=it.svg.width height=it.svg.height)
+				.p-right
+					h2.segment-title-2
+						| #{it.segmentTitle2}
+					p.segment-descr-2
+						| #{it.segmentDescr2}

@@ -1,0 +1,19 @@
+section.fix-container
+	.profile
+		.__col._1.grid-row._left
+			.__g-col._1
+				span.profile-img-cell
+					img.profile-img(src="./images/profile-1-1x.jpg")
+			.__g-col._2
+				h2.segment-title
+					| #{data.profile.segmentTitle}
+				p.segment-descr
+					| #{data.profile.segmentDescr}
+		.__col._2.grid-row._right
+			each it, index in data.profile.count
+				.__g-col(class=`_${index + 1}`)
+					.count-value
+						| #{it.value}
+					.count-label
+						| #{it.label}
+

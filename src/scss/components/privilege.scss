@@ -1,0 +1,212 @@
+// .wrapper {
+// 	// min-height: 100vh;
+
+// 	// background: url("../images/slice/1140-4.png") no-repeat center top;
+
+// 	@include xl {
+// 		// background: url("../images/slice/768-4.png") no-repeat center top;
+// 	} // // .wrapper // 	@include xl
+
+// 	@include lg {
+// 		// background: url("../images/slice/320-4.png") no-repeat center top;
+// 	} // // .wrapper // 	@include lg
+// } // // .wrapper
+
+.privilege-header {
+	@include no-shift;
+
+	display: grid;
+	align-content: flex-start;
+	grid-template: auto / repeat(2, 1fr);
+
+	// NESTED
+
+	h2.title {
+		margin-top: 42px;
+		padding-right: 70px;
+		line-height: 130%;
+		letter-spacing: -0.5px;
+	} // .privilege-header h2.title
+
+	p.descr {
+		@include margin-tl(44px, 12px);
+
+		display: block;
+		padding-right: 50px;
+		font-weight: 400;
+		letter-spacing: 0;
+	} // .privilege-header p.descr
+
+	// XL
+	@include xl {
+		grid-template: auto / repeat(1, 1fr);
+
+		h2.title {
+			@include add-font(23px, null, null, null, -0.1px);
+
+			margin: 12px auto 0;
+			padding-right: 0;
+			max-width: 270px;
+			text-align: center;
+		} // .privilege-header @include xl h2.title
+
+		p.descr {
+			@include padding-x(0);
+			@include add-font(15px, null, 173%, null, null);
+
+			margin: 12px auto 0;
+			max-width: 539px;
+			text-align: center;
+		} // .privilege-header @include xl p.descr
+	} // .privilege-header @include xl
+
+	// LG
+	@include lg {
+		grid-template: auto / repeat(1, 1fr);
+
+		h2.title {
+			margin: 2px auto 0;
+		} // .privilege-header @include lg h2.title
+
+		p.descr {
+			@include padding-x(0);
+
+			max-width: 100%;
+			font-size: 15px;
+			line-height: 165%;
+		} // .privilege-header @include lg p.descr
+	} // .privilege-header @include lg
+} // .privilege-header
+
+// SINGLE
+
+.privilege-list {
+	display: grid;
+	grid-gap: 28px 24px;
+	grid-template: auto / repeat(2, 1fr);
+	margin-top: 57px;
+
+	// NESTED
+	.__col {
+		@include p;
+
+		display: grid;
+		align-content: flex-start;
+		grid-template: auto / 150px 1fr;
+
+		// border: 1px solid rgba(var(--privilege-list--col-border-color-rgb), 0.1);
+		border-radius: var(--border-radius--1);
+		min-height: 191px;
+		box-sizing: border-box;
+		background: rgba(var(--privilege-list--col-bg-color-rgb), 0.7);
+		transition: background 0.16s linear;
+
+		&::after {
+			@include shadow;
+		}
+
+		&:hover {
+			background: var(--privilege-list--col-bg-color);
+
+			// border: 1px solid var(--privilege-list--col-bg-color);
+		} // .privilege-list .__col:hover
+	} // .privilege-list .__col
+
+	.p-left,
+	.p-right {
+		@include no-shift;
+	} // .privilege-list .p-right
+
+	.ic {
+		margin: 43px 28px 0 auto;
+	} // .privilege-list .ic
+
+	h2.segment-title-2 {
+		margin-top: 36px;
+		letter-spacing: 0.5px;
+	} // .privilege-list h2.segment-title-2
+
+	p.segment-descr-2 {
+		margin-top: 5px;
+		padding-right: 90px;
+	} // .privilege-list p.segment-descr-2
+
+	// XL
+	@include xl {
+		grid-gap: 12px;
+		margin-top: 21px;
+		text-decoration: none;
+
+		.__col {
+			grid-gap: 0;
+			grid-template: auto/ auto;
+			min-height: 280px;
+		} // .privilege-list @include xl .__col
+
+		.ic {
+			margin: 43px auto 0;
+		} // .privilege-list @include xl .ic
+
+		h2.segment-title-2 {
+			margin-top: 9px;
+			letter-spacing: -0.5px;
+			text-align: center;
+		} // .privilege-list @include xl h2.segment-title-2
+
+		p.segment-descr-2 {
+			@include padding-x(50px);
+
+			display: block;
+			overflow: hidden;
+			margin-top: 5px;
+			height: 75px;
+			text-align: center;
+		} // .privilege-list @include xl p.segment-descr-2
+	} // .privilege-list @include xl
+
+	// LG
+	@include lg {
+		grid-template: auto / auto;
+		margin-top: 28px;
+		text-decoration: none;
+
+		.__col {
+			min-height: 279px;
+		} // .privilege-list @include lg .__col
+	} // .privilege-list @include lg
+} // .privilege-list
+
+// SINGLE
+
+.ic {
+	@include size(80px);
+	@include flex-center;
+
+	border-radius: 50%;
+
+	svg {
+		fill: var(--privilege--fill-color);
+	} // .ic svg
+
+	&._1 {
+		background: var(--ic--1);
+	} // .ic._1
+
+	&._2 {
+		background: var(--ic--2);
+	} // .ic._2
+
+	&._3 {
+		background: var(--ic--3);
+	} // .ic._3
+
+	&._4 {
+		background: var(--ic--4);
+	} // .ic._4
+} // .ic
+
+.section-img {
+	@include size(100%, auto);
+
+	mask: url("../images/shapes/section-edu-img-shape.svg") no-repeat 0 0 / cover;
+} // .section-img

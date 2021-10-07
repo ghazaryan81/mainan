@@ -1,0 +1,17 @@
+header.fix-container._top-bar
+	a.__col._1.logo(
+		href="#{data.header.links.logo}"
+		title="#{header.logo.link.title}"
+		)
+		img(
+			src="./images/logo.svg"
+			alt="#{header.logo.img.alt}"
+			title="#{header.logo.img.alt}"
+			)
+	nav.__col._2.list-links
+		each it in data.header.menu
+			a.__a(href=it.url title="#{it.name}")
+				| #{it.name}
+	button.burger-toggle._position
+		span.__lines
+

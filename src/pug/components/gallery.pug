@@ -1,0 +1,16 @@
+section.fix-container
+	.gallery
+		- var section = data.gallery;
+		span.on-title
+			| #{section.onTitle}
+		h2.title
+			| #{section.title}
+		p.descr
+			| #{section.descr}
+		.gallery-bock
+			.gallery-item
+				each it, index in section.list
+					.__cell(class=`_${index + 1}`)
+						img.gallery-img(src=it.src alt=it.alt title=it.title)
+
+			include pagination

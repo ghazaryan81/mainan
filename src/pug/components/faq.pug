@@ -1,0 +1,19 @@
+section.fix-container.fix-container--trafaret
+	.faq
+		- var section = data.faq;
+		span.on-title
+			| #{section.onTitle}
+		h2.title
+			| #{section.title}
+		.accordion
+			each it, index in section.list
+				.__item.is-open
+					.__item-header
+						i.indicator
+							+svg("minus")(viewBox="0 0 17 3" width="17" height="3")
+						| #{it.question}
+					.__item-body
+						| #{it.answer}
+
+		button.btn._fill
+			| Buy Package

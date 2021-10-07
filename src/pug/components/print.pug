@@ -1,0 +1,16 @@
+section.fix-container
+	.print
+		- var section = data.print;
+		span.on-title
+			| #{section.onTitle}
+		h2.title
+			| #{section.title}
+		.print-row
+			each it, index in section.list
+				.__col(class=`_${index + 1}`)
+					img.print-img(src=it.img.src alt=it.img.alt title=it.img.title)
+					h2.segment-title
+						| #{it.title}
+					p.segment-descr
+						| #{it.descr}
+

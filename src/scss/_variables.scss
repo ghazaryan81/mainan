@@ -1,0 +1,276 @@
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+// FONTS
+// stylelint-disable-next-line
+$font-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell,
+	"Open Sans", "Helvetica Neue", sans-serif;
+// stylelint-disable-next-line
+// -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif
+$font-primary: "";
+
+// EASING TRANSITIONS
+$duration-normal: 0.4s;
+
+// http://cubic-bezier.com/#.25,.74,.22,1.1
+$easing-back-out: cubic-bezier(0.25, 0.74, 0.22, 1.1);
+
+// http://cubic-bezier.com/#.47,-0.1,.5,-.06
+$easing-back-in: cubic-bezier(0.47, -0.1, 0.5, -0.06);
+$easing-out: ease-out;
+$easing-in: ease-in;
+
+// Settings
+$desktop: 1140;
+$desktop-xl: 1800;
+$laptop: 1440;
+$tablet: 768;
+$mobile: 320;
+$desktop-vh: 750;
+
+$grid-breakpoints: (
+	sm: 0,
+	md: 320px,
+	lg: 768px,
+	xl: 1140px,
+);
+
+$container-max-widths: (
+	md: 320px,
+	lg: 720px,
+	xl: 1140px,
+);
+
+$grid-gutter-width: 24px;
+
+// bp - brackpoint
+$xl-bp: map-get($grid-breakpoints, "xl") - 1;
+$lg-bp: map-get($grid-breakpoints, "lg") - 1;
+$md-bp: map-get($grid-breakpoints, "md") - 1;
+
+// cw - content width
+$xl-cw: map-get($container-max-widths, "xl");
+$lg-cw: map-get($container-max-widths, "lg");
+$md-cw: map-get($container-max-widths, "md");
+
+@mixin xl {
+	@media screen and (max-width: $xl-bp) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media screen and (max-width: $lg-bp) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media screen and (max-width: $md-bp) {
+		@content;
+	}
+}
+
+$vars: (
+	"xl": (
+		"cw": $xl-cw,
+		"bp": $xl-bp,
+	),
+	"lg": (
+		"cw": $lg-bp,
+		"bp": $lg-bp,
+	),
+	"md": (
+		"cw": $md-cw,
+		"bp": $md-bp,
+	),
+	"brand-color": (
+		"0-1": #000,
+		//
+		"1-1": #fdcf3f,
+		//
+		"2-1": #ff7d56,
+		//
+		"3-1": #fdcf3f,
+		//
+		"4-1": #b2d93a,
+		//
+		"5-1": #fff,
+		//
+		"6-1": #fff8f0,
+		//
+		"7-1": #686868,
+		//
+		"8-1": #b2d93a,
+		//
+		"9-1": #25334e,
+		//
+		"10-1": #ff9b63,
+		//
+		"11-1": #fce2c4,
+		//
+		"12-1": #fdcf3f,
+		//
+		"13-1": #6ed2ef,
+		//
+		"14-1": #f47192,
+		//
+		"15-1": #25334e,
+		//
+		"16-1": #87351d,
+		//
+		"17-1": #ff5656,
+		//
+		"18-1": #082c6f,
+		//
+		"19-1": #25344e,
+		//
+		"20-1": #27354e,
+		//
+		"21-1": #efe7e5,
+	),
+	"border-radius": (
+		"1": 18px,
+		"2": 30px,
+		"3": 20px,
+		"4": 54px,
+		"5": 24px,
+	),
+);
+
+$component-vars: (
+	"global": (
+		"scroll-thumb-bg-color": map-deep-get($vars, "brand-color", "2-1"),
+		"select-text-color": map-deep-get($vars, "brand-color", "2-1"),
+		"select-text-bg-color": map-deep-get($vars, "brand-color", "0-1"),
+		"min-w": 320px,
+		"max-w": 1920px,
+		"rem-baseline": 17px,
+	),
+	"body": (
+		"bg-color": map-deep-get($vars, "brand-color", "1-1"),
+		"text-color": map-deep-get($vars, "brand-color", "7-1"),
+		"scroll-thumb-background-color": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"font-family": (
+		"baloo2": "'Baloo 2'",
+		"baloo-chettan2": "'Baloo Chettan 2'",
+		"nunito": "'Nunito'",
+	),
+	"list-links": (
+		"text-color": map-deep-get($vars, "brand-color", "7-1"),
+		"hover-text-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"on-title": (
+		"text-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"title": (
+		"color": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"descr": (
+		"text-color": map-deep-get($vars, "brand-color", "7-1"),
+	),
+	"btn": (
+		"border-radius": map-deep-get($vars, "border-radius", "2"),
+		"fill-text-color": map-deep-get($vars, "brand-color", "5-1"),
+		"fill-bg-color": map-deep-get($vars, "brand-color", "2-1"),
+		"fill-shadow": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"burger-toggle": (
+		"bg-color": map-deep-get($vars, "brand-color", "2-1"),
+		"lines": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"company-info": (
+		"bg-color": map-deep-get($vars, "brand-color", "5-1"),
+		"border-radius": map-deep-get($vars, "border-radius", "4"),
+	),
+	"author-name": (
+		"text-color": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"author-opinion": (
+		"text-color": map-deep-get($vars, "brand-color", "7-1"),
+	),
+	"bc": (
+		"1": map-deep-get($vars, "brand-color", "1-1"),
+		"2": map-deep-get($vars, "brand-color", "2-1"),
+		"3": map-deep-get($vars, "brand-color", "1-1"),
+		"4": map-deep-get($vars, "brand-color", "4-1"),
+		"5": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"counter-block": (
+		"count": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"block-icon": (
+		"play": map-deep-get($vars, "brand-color", "2-1"),
+		"creative": map-deep-get($vars, "brand-color", "13-1"),
+		"brain": map-deep-get($vars, "brand-color", "4-1"),
+		"build": map-deep-get($vars, "brand-color", "3-1"),
+	),
+	"article-info": (
+		"title": map-deep-get($vars, "brand-color", "9-1"),
+		"descr": map-deep-get($vars, "brand-color", "7-1"),
+	),
+	"soc-link": (
+		"bg-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"accordion": (
+		"bg-color": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"segment-title": (
+		"text-color": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"privilege-list": (
+		"col-bg-color": map-deep-get($vars, "brand-color", "5-1"),
+		"col-bg-color-rgb": torgb(map-deep-get($vars, "brand-color", "5-1")),
+		"col-border-color": map-deep-get($vars, "brand-color", "9-1"),
+		"col-border-color-rgb": torgb(map-deep-get($vars, "brand-color", "9-1")),
+	),
+	"ic": (
+		"1": map-deep-get($vars, "brand-color", "2-1"),
+		"2": map-deep-get($vars, "brand-color", "13-1"),
+		"3": map-deep-get($vars, "brand-color", "4-1"),
+		"4": map-deep-get($vars, "brand-color", "1-1"),
+	),
+	"segment-title-2": (
+		"text-color": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"profile": (
+		"bg-color": map-deep-get($vars, "brand-color", "5-1"),
+		"after-bg-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"segment-title-3": (
+		"text-color": map-deep-get($vars, "brand-color", "9-1"),
+	),
+	"pagination": (
+		"page-bg-color": map-deep-get($vars, "brand-color", "11-1"),
+		"page-hover-bg-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"testimonials-block": (
+		"bg-color": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"shadow": (
+		"bg-color": map-deep-get($vars, "brand-color", "16-1"),
+	),
+	"privilege": (
+		"fill-color": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"price-table": (
+		"border-color-standart": map-deep-get($vars, "brand-color", "21-1"),
+		"border-color-exclusive": map-deep-get($vars, "brand-color", "2-1"),
+		"bg-color": map-deep-get($vars, "brand-color", "5-1"),
+	),
+	"short-info-about-prices": (
+		"text-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+	"price": (
+		"text-color": map-deep-get($vars, "brand-color", "4-1"),
+	),
+	"sale": (
+		"text-color": map-deep-get($vars, "brand-color", "17-1"),
+	),
+	"duration": (
+		"text-color": map-deep-get($vars, "brand-color", "20-1"),
+	),
+	"indicator": (
+		"svg-fill-color": map-deep-get($vars, "brand-color", "2-1"),
+	),
+);

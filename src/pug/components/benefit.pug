@@ -1,0 +1,15 @@
+section.fix-container
+	.benefit
+		.img-row
+			.img-cell
+				- var section = data.benefit;
+				- var img = data.benefit.img;
+				img.section-img(src=img.src alt=img.alt title=img.title)
+		span.on-title
+			| #{section.onTitle}
+		h2.title
+			| #{section.title}
+		ul.list
+			each it in data.benefit.list
+				li.__it
+					| #{it.itemText}

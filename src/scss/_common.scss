@@ -1,0 +1,55 @@
+:root {
+	@each $key1, $level1 in $component-vars {
+		@each $key2, $level2 in $level1 {
+			--#{$key1}--#{$key2}: #{$level2};
+		}
+	}
+
+	@each $key1, $level1 in $vars {
+		@if $key1 != "brand-color" {
+			@each $key2, $level2 in $level1 {
+				--#{$key1}--#{$key2}: #{$level2};
+			}
+		} @else if $key1 == "brand-color" {
+			@each $key2, $level2 in $level1 {
+				--#{$key1}--#{$key2}: #{$level2};
+				--#{$key1}--#{$key2}-rgb: #{torgb($level2)};
+			}
+		}
+	}
+}
+
+@include font-face-list(
+	map-deep-get($component-vars, "font-family", "baloo2"),
+	"baloo2",
+	(
+		"400": "regular",
+	)
+);
+@include font-face-list(
+	map-deep-get($component-vars, "font-family", "baloo-chettan2"),
+	"baloo-chettan2",
+	(
+		"800": "extra-bold",
+	)
+);
+@include font-face-list(
+	map-deep-get($component-vars, "font-family", "nunito"),
+	"nunito",
+	(
+		"400": "regular",
+		"500": "medium",
+		"600": "semi-bold",
+		"700": "bold",
+		"800": "extra-bold",
+		"900": "black",
+	)
+);
+
+@mixin gradient-1($ang: "180deg") {
+	background: linear-gradient(
+		#{$ang},
+		rgba(var(--brand-color--6-1-rgb), 1) 0%,
+		rgba(var(--brand-color--6-1-rgb), 0) 100%
+	);
+} // @mixin gradient-3

@@ -1,0 +1,267 @@
+// .wrapper {
+// 	min-height: 1500px;
+// 	background: url("../images/slice/1140-9.png") no-repeat center top;
+
+// 	@include xl {
+// 		background: url("../images/slice/768-9.png") no-repeat center top;
+// 	} // // .wrapper // 	@include xl
+
+// 	@include lg {
+// 		background: url("../images/slice/320-9.png") no-repeat center top;
+// 	} // // .wrapper // 	@include lg
+// } // // .wrapper
+
+.price-header {
+	display: grid;
+	grid-template: auto / 50% 50%;
+
+	// NESTED
+	span.on-title {
+		@include margin-tl(58px, -1px);
+
+		display: block;
+		letter-spacing: 5.5px;
+	} // .price-header span.on-title
+
+	h2.title {
+		margin-top: 21px;
+		line-height: 131%;
+		letter-spacing: -0.4px;
+	} // .price-header h2.title
+
+	p.descr {
+		padding-top: 60px;
+		padding-left: 13px;
+		font-size: 18px;
+		line-height: 170%;
+		letter-spacing: 0;
+	} // .price-header p.descr
+
+	// XL
+	@include xl {
+		grid-template: auto / auto;
+		text-align: center;
+		text-decoration: none;
+
+		span.on-title {
+			margin-top: 18px;
+			font-size: 12px;
+			letter-spacing: 1.6px;
+		} // .price-header @include xl span.on-title
+
+		h2.title {
+			margin-top: 13px;
+			font-size: 23px;
+			letter-spacing: 0;
+		} // .price-header @include xl h2.title
+
+		p.descr {
+			margin: 0 auto;
+			padding-top: 12px;
+			padding-left: 13px;
+			max-width: 565px;
+			font-size: 15px;
+			letter-spacing: 0;
+		} // .price-header @include xl p.descr
+	} // .price-header @include xl
+
+	// LG
+	@include lg {
+		p.descr {
+			padding-left: 0;
+		} // .price-header @include lg p.descr
+	} // .price-header @include lg
+} // .price-header
+
+// SINGLE
+.price-body {
+	display: grid;
+	grid-column-gap: 23px;
+	grid-template: auto / 32% 1fr;
+	margin-top: 51px;
+	width: 100%;
+
+	// XL
+	@include xl {
+		grid-column-gap: 8px;
+		grid-template: auto / 41% 1fr;
+		margin-top: 22px;
+	} // .price-body @include xl
+
+	// LG
+	@include lg {
+		grid-column-gap: 0;
+		grid-row-gap: 29px;
+		grid-template: auto / auto;
+		margin-top: 24px;
+	} // .price-body @include lg
+} // .price-body
+
+.price-table {
+	@include no-shift;
+
+	display: block;
+	border: solid var(--price-table--border-color-standart) 1px;
+	border-radius: var(--border-radius--5);
+	padding-bottom: 40px;
+	min-height: 502px;
+	text-align: center;
+	background: var(--price-table--bg-color);
+
+	// NESTED
+	h2.__title {
+		@include add-font(20px, 900, 100%, var(--font-family--baloo-chettan2), null);
+
+		margin-top: 32px;
+		text-align: center;
+		color: var(--title--color);
+	} // .price-table h2.__title
+
+	p.__decsr {
+		display: inline-flex;
+		align-items: center;
+		padding-top: 27px;
+		text-align: center;
+	} // .price-table p.__decsr
+
+	span.__price {
+		@include add-font(32px, 400, 100%, var(--font-family--baloo-chettan2), null);
+
+		text-align: center;
+		color: var(--price--text-color);
+	} // .price-table span.__price
+
+	span.__sale {
+		@include add-font(14px, 600, 19px, null, null);
+
+		margin-top: 5px;
+		margin-right: 15px;
+		text-decoration-line: line-through;
+		color: var(--sale--text-color);
+	} // .price-table span.__sale
+
+	span.__duration {
+		@include add-font(14px, 600, 19px, null, null);
+
+		display: inline-block;
+		padding-top: 4px;
+		padding-left: 8px;
+		text-align: center;
+		color: var(--duration--text-color);
+	} // .price-table span.__duration
+
+	span.__dash-line {
+		display: block;
+		margin-right: 33px;
+		margin-left: 32px;
+		min-height: 74px;
+		background: url("../images/horizon-dash.svg") repeat-x left 31px;
+	} // .price-table span.__dash-line
+
+	ul.price-profite-list {
+		margin-bottom: 34px;
+		margin-left: 32px;
+		text-align: left;
+
+		.__it {
+			padding-top: 1px;
+			padding-right: 30px;
+			padding-bottom: 13px;
+			padding-left: 37px;
+			line-height: 180%;
+			background-image: svgtodataurl(
+				'<svg fill="#b2d93a" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path d="M11 22c-1.3 0-2.6-.2-3.8-.7C5 20.5 3.1 19 1.8 17 .5 15-.1 12.6.1 10.3c.2-2.4 1.1-4.6 2.6-6.4C4.2 2.1 6.3.8 8.6.3c2.3-.5 4.7-.3 6.9.7.5.2.7.8.5 1.3-.2.5-.8.7-1.3.5-1.8-.8-3.8-1-5.7-.6-1.9.4-3.6 1.5-4.8 3-1.3 1.5-2 3.3-2.1 5.3-.1 1.9.4 3.9 1.4 5.5 1 1.6 2.6 2.9 4.4 3.5 1.8.7 3.8.7 5.7.2 1.8-.5 3.5-1.7 4.7-3.2 1.2-1.5 1.8-3.5 1.8-5.4v-.9c0-.6.4-1 1-1s1 .4 1 1v.8c0 2.4-.8 4.7-2.2 6.6-1.4 1.9-3.4 3.3-5.7 4-1.1.2-2.1.4-3.2.4z"/><path d="M11 14c-.3 0-.5-.1-.7-.3l-3-3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l2.3 2.3 9.3-9.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-10 10c-.2.2-.4.3-.7.3z"/></svg>'
+			);
+			background-position: left 7px;
+			background-size: 16.67px 16.67px;
+			background-repeat: no-repeat;
+		} // .price-table ul.price-profite-list .__it
+
+		&._multi-cols {
+			display: grid;
+			grid-template: auto / 1fr 1fr;
+
+			@include xl {
+				grid-template: auto / auto;
+			} // .price-table ul.price-profite-list._multi-cols @include xl
+		} // .price-table ul.price-profite-list._multi-cols
+	} // .price-table ul.price-profite-list
+
+	&._standart {
+		button.btn {
+			display: block;
+			margin: 0 auto;
+			margin-left: 40px;
+			border: 1px solid #ff7d56;
+			border-radius: var(--border-radius--4);
+			width: 78%;
+			min-height: 70px;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+			color: #ff7d56;
+			background: #fff;
+
+			@include lg {
+				margin: 0 auto;
+				width: 82%;
+				max-width: 100%;
+			}
+		} // .price-table._standart button.btn
+	} // .price-table._standart
+
+	&._exclusive {
+		border: solid var(--price-table--border-color-exclusive) 1px;
+
+		button.btn {
+			display: block;
+			margin: 0 auto;
+			margin-left: 40px;
+			border: 1px solid #ff7d56;
+			border-radius: var(--border-radius--4);
+			width: 284px;
+			min-height: 70px;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+
+			@include lg {
+				margin: 0 auto;
+				width: 82%;
+				max-width: 100%;
+			}
+		} // .price-table._exclusive button.btn
+	} // .price-table._exclusive
+
+	// XL
+	@include xl {
+		text-decoration: none;
+	} // .price-table @include xl
+
+	// LG
+	@include lg {
+		text-decoration: none;
+	} // .price-table @include lg
+} // .price-table
+
+.short-info-about-prices {
+	@include add-font(14px, 600, 19px, null, null);
+
+	display: block;
+	margin: 50px 0;
+	letter-spacing: 0.35px;
+	text-align: center;
+	color: var(--short-info-about-prices--text-color);
+
+	@include xl {
+		margin: 50px auto 0;
+		max-width: 48%;
+		text-decoration: none;
+	} // .short-info-about-prices @include xl
+
+	@include lg {
+		margin: 10px auto 0;
+		max-width: 83%;
+		text-decoration: none;
+	} // .short-info-about-prices @include lg
+} // .short-info-about-prices
