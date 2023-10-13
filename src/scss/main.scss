@@ -1,0 +1,67 @@
+// stylelint-disable at-rule-empty-line-before
+
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "sprites";
+
+@import "fonts";
+
+@import "vendor";
+
+@import "base";
+
+@import "helpers";
+
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../node_modules/sass-rem/rem";
+
+@import "components/header";
+
+@import "components/footer";
+
+@import "pages/home";
+
+:root {
+ @each $key1, $level1 in $vars {
+  @if $key1 != "brand-color" {
+   @each $key2, $level2 in $level1 {
+    --#{$key1} // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" @each $key2, $level2 in $level1 --#
+   } // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" @each $key2, $level2 in $level1
+  } // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" } @else if $key1 == "brand-color"
+   @each $key2, $level2 in $level1 {
+    --#{$key1} // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" @each $key2, $level2 in $level1 --#
+    --#{$key1} // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" @each $key2, $level2 in $level1 --#
+   } // :root @each $key1, $level1 in $vars @if $key1 != "brand-color" @each $key2, $level2 in $level1
+  } // :root @each $key1, $level1 in $vars @if $key1 != "brand-color"
+ } // :root @each $key1, $level1 in $vars
+
+ @each $key1, $level1 in $component-vars {
+  @each $key2, $level2 in $level1 {
+   --#{$key1} // :root @each $key1, $level1 in $component-vars @each $key2, $level2 in $level1 --#
+  } // :root @each $key1, $level1 in $component-vars @each $key2, $level2 in $level1
+ } // :root @each $key1, $level1 in $component-vars
+} // :root
+
+body {
+ @include font-face(
+  "../fonts/baloo-chettan2/baloo-chettan2-medium",
+  "baloo-chettan2",
+  500,
+  normal
+ );
+ background: url(../images/layout.jpg) no-repeat center top;
+} // body
+
+.row {
+ @include margin-x(-30px);
+} // .row
+
+.test {
+ display: block;
+ height: 20px;
+} // .test
+
+.top-bar {
+ display: block;
+} // .top-bar
